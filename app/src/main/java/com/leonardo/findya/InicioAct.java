@@ -59,7 +59,6 @@ public class InicioAct extends Activity {
                         public void onCompleted(GraphUser user, Response response) {
                             if (user != null) {
                                 usuario = user;
-
                             }
                         }
                     }).executeAsync();
