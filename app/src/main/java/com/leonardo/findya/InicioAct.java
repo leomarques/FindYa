@@ -26,6 +26,24 @@ public class InicioAct extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        /*
+        // Add code to print out the key hash
+        try {
+            PackageInfo info = getPackageManager().getPackageInfo(
+                    "com.leonardo.findya",
+                    PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+
+        } catch (NoSuchAlgorithmException e) {
+
+        }*/
+
+
         Session.openActiveSession(this, true, new Session.StatusCallback() {
 
             // callback when session changes state
@@ -41,6 +59,7 @@ public class InicioAct extends Activity {
                         public void onCompleted(GraphUser user, Response response) {
                             if (user != null) {
                                 usuario = user;
+
                             }
                         }
                     }).executeAsync();
