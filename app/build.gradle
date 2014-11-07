@@ -40,4 +40,5 @@ dependencies {
     apt "org.androidannotations:androidannotations:3.1"
     compile 'org.androidannotations:androidannotations-api:3.1'
     compile fileTree(include: ['*.jar'], dir: 'libs')
+    provided project(':facebook')
 }
