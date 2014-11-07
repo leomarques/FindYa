@@ -2,10 +2,47 @@
 <resources>
 
     <string name="app_name">FindYa</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
     <string name="app_id">1530376943874977</string>
-    <string name="title_activity_main">MainActivity</string>
-    <string name="title_activity_login">LoginAct</string>
+
+    <string name="drawer_open">FindYa</string>
+    <string name="drawer_close">FindYa</string>
+
+    <string name="amigosAdicionados">Amigo(s) adicionado(s)</string>
+    <string name="solicitacaoEnviada">Solicitação enviada</string>
+    <string name="solicitacaoAceita">Solicitação aceita</string>
+
+    <string name="amigoExcluido">Amigo excluído</string>
+    <string name="amigoCutucado">Amigo cutucado</string>
+
+    <string name="usuariosPublicosNulo">Nenhum usuário encontrado</string>
+
+    <string name="desejaLigarGps">Deseja ligar o GPS? (Recomendado para locais abertos)</string>
+
+    <string name="gplayServIndisponivel">O Google Play Services não está disponível no seu aparelho.</string>
+
+    <string name="providerOutOfService">FindYa: Não é possível obter sua localização.</string>
+    <string name="providerTemporarilyUnavailable">FindYa: Não será possível obter sua localização temporariamente.</string>
+    <string name="providerAvailable">FindYa: Sua localização foi obtida.</string>
+    <string name="gpsDesligado">FindYa: O GPS foi desligado e o serviço de localização não pode continuar.</string>
+    <string name="semLocalizacao">FindYa: Sem localização</string>
+    <string name="providerNulo">FindYa: Provedor de localização inacessível no seu aparelho.</string>
+    <string name="semConexao">FindYa: Você não está conectado á internet.</string>
+
+    <string name="ab_gerenciador_servico">Serviço</string>
+    <string name="tituloStatus">Status</string>
+    <string name="textoSair">Sair dessa conta</string>
+    <string name="textoNaoPublico">Não aparecer para usuários públicos</string>
+
+    <string name="tituloAmigosFace">Amigos do Facebook</string>
+    <string name="textoAmigosFace">Você pode procurar por seus amigos do Facebook que também usam o FindYa.</string>
+    <string name="tituloAmigosComum">Amigos em comum</string>
+    <string name="textoAmigosComum">Você pode procurar por pessoas que tenham amigos em comum com você no FindYa.</string>
+    <string name="tituloUsuariosPublicos">Usuarios Públicos</string>
+    <string name="textoUsuariosPublicos">Você pode procurar por usuários públicos perto de onde você está.</string>
+    <string name="tituloSolicitacoesAmizade">Solicitações de Amizade</string>
+    <string name="textoSolicitacoesAmizade">Veja as solicitações de amizade que você recebeu.</string>
+
+    <string name="amigosFaceNulo">Nenhum usuário encontrado.</string>
+    <string name="solicitacoesNulo">Você não tem nenhuma solicitação de amizade.</string>
 
 </resources>
