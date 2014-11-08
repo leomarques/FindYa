@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="dark_green">#184039</color>
+    <color name="light_green">#b9d9c1</color>
+    <color name="medium_green">#26675a</color>
+    <color name="another_green">#95C19D</color>
+    <color name="another_green2">#4cab7e</color>
+    <color name="fundo">#ebebec</color>
+    <color name="branco">#ffffff</color>
+    <color name="preto">#000000</color>
+    <color name="gray">#C0C0C0</color>
+    <color name="light_gray">#d3d3d3</color>
+
+</resources>
