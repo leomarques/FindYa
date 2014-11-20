@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/light_green" >
+
+    <RelativeLayout
+        android:id="@+id/listaAmigos_layoutHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true" >
+
+        <ImageView
+            android:id="@+id/listaAmigos_foto"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp" />
+
+        <TextView
+            android:id="@+id/listaAmigos_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="2dp"
+            android:layout_toRightOf="@+id/listaAmigos_foto"
+            android:textColor="@color/medium_green"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/listaAmigos_nome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/listaAmigos_data"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/listaAmigos_foto"
+            android:textColor="@color/dark_green"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/listaAmigos_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/listaAmigos_nome"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/listaAmigos_foto"
+            android:maxLength="16"
+            android:textColor="@color/medium_green"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/listaAmigos_distancia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:layout_toRightOf="@+id/listaAmigos_data"
+            android:textColor="@color/medium_green"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/listaAmigos_opcoes"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignRight="@+id/listaAmigos_layoutHeader"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:clickable="true"
+        android:src="@drawable/lista_amigos_menu" />
+
+    <RelativeLayout
+        android:id="@+id/listaAmigos_layoutLocal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/listaAmigos_layoutHeader"
+        android:background="@color/another_green"
+        android:clickable="true" >
+
+        <TextView
+            android:id="@+id/listaAmigos_local"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/medium_green"
+            android:textSize="14sp"
+            android:textStyle="italic" />
+    </RelativeLayout>
+
+</RelativeLayout>
