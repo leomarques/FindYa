@@ -2,10 +2,11 @@ package com.leonardo.findya.outros;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Bitmap.Config;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.PorterDuff;
+import android.graphics.PorterDuff.Mode;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
@@ -57,7 +58,7 @@ public class RoundedImageView extends ImageView {
         else
             sbmp = bmp;
         Bitmap output = Bitmap.createBitmap(sbmp.getWidth(), sbmp.getHeight(),
-                Bitmap.Config.ARGB_8888);
+                Config.ARGB_8888);
         Canvas canvas = new Canvas(output);
 
         //final int color = 0xffa19774;
@@ -71,7 +72,7 @@ public class RoundedImageView extends ImageView {
         paint.setColor(Color.parseColor("#BAB399"));
         canvas.drawCircle(sbmp.getWidth() / 2 + 0.7f,
                 sbmp.getHeight() / 2 + 0.7f, sbmp.getWidth() / 2 + 0.1f, paint);
-        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        paint.setXfermode(new PorterDuffXfermode(Mode.SRC_IN));
         canvas.drawBitmap(sbmp, rect, rect, paint);
 
         return output;

@@ -30,8 +30,6 @@ public class ListaAmigosFrag extends Fragment {
     public void onResume() {
         super.onResume();
 
-        Log.i("jabaliano", "id=" + App.getUsuario().getIdFace());
-
         new BaixaAmigos().execute();
     }
 
@@ -41,7 +39,6 @@ public class ListaAmigosFrag extends Fragment {
         @Override
         protected Void doInBackground(Void... arg0) {
             amigos = App.getAmigosAtualizados();
-            Log.i("jabaliano", amigos == null ? "amigos nulos" : "qamigos = " + amigos.size());
             if (amigos == null) {
                 amigos = new ArrayList<Usuario>();
                 return null;

@@ -1,5 +1,6 @@
 package com.leonardo.findya.adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.view.LayoutInflater;
@@ -13,6 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.leonardo.findya.R;
+import com.leonardo.findya.fragments.MapaFrag;
+import com.leonardo.findya.fragments.MapaFrag_;
 import com.leonardo.findya.outros.App;
 import com.leonardo.findya.outros.Usuario;
 import com.leonardo.findya.outros.UsuarioDao;
@@ -161,8 +164,6 @@ public class AmigosAdapter extends BaseAdapter {
             viewHolder = new AmigosViewHolder();
             viewHolder.lh = (RelativeLayout) convertView
                     .findViewById(R.id.listaAmigos_layoutHeader);
-            viewHolder.ll = (RelativeLayout) convertView
-                    .findViewById(R.id.listaAmigos_layoutLocal);
             viewHolder.img = (ImageView) convertView
                     .findViewById(R.id.listaAmigos_foto);
             viewHolder.opcoes = (ImageView) convertView
@@ -175,8 +176,6 @@ public class AmigosAdapter extends BaseAdapter {
                     .findViewById(R.id.listaAmigos_status);
             viewHolder.data = (TextView) convertView
                     .findViewById(R.id.listaAmigos_data);
-            viewHolder.local = (TextView) convertView
-                    .findViewById(R.id.listaAmigos_local);
 
             convertView.setTag(viewHolder);
         } else {
@@ -194,12 +193,12 @@ public class AmigosAdapter extends BaseAdapter {
                 ArrayList<Usuario> lista = new ArrayList<Usuario>();
                 lista.add(App.getUsuario());
                 lista.add(contato);
-/*
+
                 MapaFrag f = MapaFrag_.builder().usuarios(lista).build();
-                ((ActionBarActivity) context).getSupportFragmentManager()
+                ((Activity) context).getFragmentManager()
                         .beginTransaction().addToBackStack(null)
                         .replace(R.id.frame, f, "mapa").commit();
-                        */
+
             }
 
         });
@@ -236,12 +235,6 @@ public class AmigosAdapter extends BaseAdapter {
             }
         }
 
-        if (contato.getLocalizacao() != null) {
-            viewHolder.local.setText(contato.getLocalizacao());
-        } else {
-            //viewHolder.ll.setVisibility(RelativeLayout.INVISIBLE);
-        }
-
         return convertView;
     }
 
@@ -262,7 +255,6 @@ public class AmigosAdapter extends BaseAdapter {
 
     static class AmigosViewHolder {
         RelativeLayout lh;
-        RelativeLayout ll;
         ImageView img;
         ImageView opcoes;
         TextView nome;

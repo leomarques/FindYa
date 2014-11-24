@@ -2,7 +2,8 @@
 <resources>
 
     <string name="app_name">FindYa</string>
-    <string name="app_id">1530376943874977</string>
+    <string name="faecbook_id">1530376943874977</string>
+    <string name="gmaps_key">AIzaSyBzGWlveRF6B_BdL_QmDR6hPxAQJETLni4</string>
 
     <string name="drawer_open">FindYa</string>
     <string name="drawer_close">FindYa</string>

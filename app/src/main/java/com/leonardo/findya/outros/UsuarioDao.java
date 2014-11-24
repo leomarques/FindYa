@@ -25,8 +25,8 @@ public class UsuarioDao {
     private static final String URL_BUSCARUSUARIOPORIDFACE				= "http://findya-env.elasticbeanstalk.com/buscarUsuarioPorIdFace.php";
     private static final String URL_BUSCARUSUARIOSPORIDFACE				= "http://findya-env.elasticbeanstalk.com/buscarUsuariosPorIdFace.php";
     private static final String URL_BUSCARUSUARIOSPUBLICOSNOQUADRANTE 	= "http://findya-env.elasticbeanstalk.com/buscarUsuariosPublicosNoQuadrante.php";
-    private static final String URL_CADASTRAR_USUARIO					= "http://findya-env.elasticbeanstalk.com/cadastrarUsuario.php";
     private static final String URL_CADASTRARDISPOSITIVO				= "http://findya-env.elasticbeanstalk.com/cadastrarDispositivo.php";
+    private static final String URL_CADASTRARUSUARIO                    = "http://findya-env.elasticbeanstalk.com/cadastrarUsuario.php";
     private static final String URL_DESATIVARDISPOSITIVO				= "http://findya-env.elasticbeanstalk.com/desativarDispositivo.php";
     private static final String URL_ENVIARSOLICITACOESAMIZADE			= "http://findya-env.elasticbeanstalk.com/enviarSolicitacoesAmizade.php";
     private static final String URL_EXCLUIRAMIGO						= "http://findya-env.elasticbeanstalk.com/excluirAmigo.php";
@@ -40,7 +40,7 @@ public class UsuarioDao {
         lista.addAll(usuarios);
         String usuarioJson = new Gson().toJson(lista);
 
-        Util.imprimeReader(Util.jsonPost(URL_ACEITARSOLICITACOESAMIZADE, usuarioJson));
+        Util.jsonPost(URL_ACEITARSOLICITACOESAMIZADE, usuarioJson);
     }
 
     public static void aceitarSolicitacaoAmizade(Usuario usuario) {
@@ -177,7 +177,7 @@ public class UsuarioDao {
             return;
         }
 
-        Util.jsonPost(URL_CADASTRAR_USUARIO, usuarioJson);
+        Util.jsonPost(URL_CADASTRARUSUARIO, usuarioJson);
     }
 
     public static void cadastrarDispositivo() {
@@ -227,7 +227,7 @@ public class UsuarioDao {
         lista.addAll(usuarios);
         String usuarioJson = new Gson().toJson(lista);
 
-        Util.imprimeReader(Util.jsonPost(URL_OCULTARSOLICITACOESAMIZADE, usuarioJson));
+        Util.jsonPost(URL_OCULTARSOLICITACOESAMIZADE, usuarioJson);
     }
 
     public static void salvarIdGcm() {

@@ -69,22 +69,4 @@
         android:clickable="true"
         android:src="@drawable/lista_amigos_menu" />
 
-    <RelativeLayout
-        android:id="@+id/listaAmigos_layoutLocal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/listaAmigos_layoutHeader"
-        android:background="@color/another_green"
-        android:clickable="true" >
-
-        <TextView
-            android:id="@+id/listaAmigos_local"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:textColor="@color/medium_green"
-            android:textSize="14sp"
-            android:textStyle="italic" />
-    </RelativeLayout>
-
 </RelativeLayout>
