@@ -1,14 +1,13 @@
 package com.leonardo.findya;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 
-import com.facebook.Session;
-import com.facebook.SessionState;
 import com.facebook.UiLifecycleHelper;
 import com.facebook.model.GraphUser;
 import com.facebook.widget.LoginButton;
@@ -16,6 +15,7 @@ import com.leonardo.findya.outros.App;
 import com.leonardo.findya.outros.InstallationId;
 import com.leonardo.findya.outros.Usuario;
 import com.leonardo.findya.outros.UsuarioDao;
+import com.leonardo.findya.outros.Util;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
@@ -33,7 +33,7 @@ public class LoginAct extends FragmentActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-/*
+
         if (!Util.isOnline()) {
             new AlertDialog.Builder(this)
                     .setMessage(R.string.semConexao)
@@ -45,8 +45,8 @@ public class LoginAct extends FragmentActivity {
                                 }
                             }).show();
         }
-*/
-        uiHelper = new UiLifecycleHelper(this, callback);
+
+        uiHelper = new UiLifecycleHelper(this, null);
         uiHelper.onCreate(savedInstanceState);
     }
 
@@ -117,12 +117,6 @@ public class LoginAct extends FragmentActivity {
     public void onResume() {
         super.onResume();
         uiHelper.onResume();
-
-        Session session = Session.getActiveSession();
-        if (session != null &&
-                (session.isOpened() || session.isClosed()) ) {
-            onSessionStateChange(session, session.getState(), null);
-        }
     }
 
     @Override
@@ -148,20 +142,5 @@ public class LoginAct extends FragmentActivity {
         super.onSaveInstanceState(outState);
         uiHelper.onSaveInstanceState(outState);
     }
-
-    private void onSessionStateChange(Session session, SessionState state, Exception exception) {
-        if (state.isOpened()) {
-            Log.i("fb", "Logged in...");
-        } else if (state.isClosed()) {
-            Log.i("fb", "Logged out...");
-        }
-    }
-
-    private Session.StatusCallback callback = new Session.StatusCallback() {
-        @Override
-        public void call(Session session, SessionState state, Exception exception) {
-            onSessionStateChange(session, state, exception);
-        }
-    };
 
 }

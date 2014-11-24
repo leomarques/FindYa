@@ -66,7 +66,7 @@ public class ListaAmigosFrag extends Fragment {
             try {
                 listaAmigos.setAdapter(new AmigosAdapter(getActivity(), amigos));
             } catch (Exception e) {
-                Log.i("listaAmigos", "erro p/ popular lista de amigos");
+                Log.i(Util.LOGTAG, "erro p/ popular lista de amigos");
             }
         }
     }

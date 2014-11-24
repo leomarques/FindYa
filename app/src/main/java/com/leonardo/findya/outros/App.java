@@ -19,7 +19,7 @@ public class App extends Application {
     private static final String ARQUIVO_AMIGOS = "amigos";
     private static final String ARQUIVO_SOLICITADOS = "solicitados";
 
-    public static final String GCM_PROJECT_NUMBER = "113853949739";
+    //public static final String GCM_PROJECT_NUMBER = "113853949739";
 
     public App() {
         inst = this;

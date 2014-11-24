@@ -30,8 +30,8 @@ public class MenuLateralListener implements ListView.OnItemClickListener {
                 lista.add(App.getUsuario());
                 f = MapaFrag_.builder().usuarios(lista).build();
                 telaPrincipalAct.getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.frame, f, "mapa").commit();
-                telaPrincipalAct.drawerLayout.closeDrawer(telaPrincipalAct.menuLateral);
                 */
+                telaPrincipalAct.drawerLayout.closeDrawer(telaPrincipalAct.menuLateral);
                 break;
             case 2:
                 //telaPrincipalAct.getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.frame, new AddAmigosFrag_()).commit();

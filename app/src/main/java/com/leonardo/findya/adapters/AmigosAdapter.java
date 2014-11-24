@@ -28,13 +28,16 @@ public class AmigosAdapter extends BaseAdapter {
 
     private Context context;
     private List<Usuario> lista;
+/*
     private Usuario amigo;
-    //public QuickAction mQuickAction;
+
+    public QuickAction mQuickAction;
 
     private final String QA_MSG = "Mensagem";
     private final String QA_CUTUCAR = "Cutucar";
     private final String QA_PROFILE_FACE = "Profile";
     private final String QA_EXCLUIR_AMIGO = "Excluir";
+*/
 
     public AmigosAdapter(final Context paramContext,
                          final List<Usuario> paramLista) {
@@ -156,8 +159,8 @@ public class AmigosAdapter extends BaseAdapter {
         AmigosViewHolder viewHolder;
 
         if (convertView == null) {
-            LayoutInflater inflater = (LayoutInflater) context
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            LayoutInflater inflater = (LayoutInflater) context.
+                    getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater
                     .inflate(R.layout.lista_amigos, parent, false);
 
@@ -197,7 +200,7 @@ public class AmigosAdapter extends BaseAdapter {
                 MapaFrag f = MapaFrag_.builder().usuarios(lista).build();
                 ((Activity) context).getFragmentManager()
                         .beginTransaction().addToBackStack(null)
-                        .replace(R.id.frame, f, "mapa").commit();
+                        .replace(R.id.frame, f).commit();
 
             }
 
@@ -205,14 +208,15 @@ public class AmigosAdapter extends BaseAdapter {
 
         String url = Util.pegarUrlFotoProfile(contato.getIdFace());
         App.getImageLoader().DisplayImage(url, viewHolder.img);
-
+/*
         viewHolder.opcoes.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 AmigosAdapter.this.amigo = lista.get(position);
-                //mQuickAction.show(v);
+                mQuickAction.show(v);
             }
         });
+*/
 
         viewHolder.nome.setText(contato.getNome());
 
@@ -261,7 +265,6 @@ public class AmigosAdapter extends BaseAdapter {
         TextView distancia;
         TextView data;
         TextView status;
-        TextView local;
     }
 
 }

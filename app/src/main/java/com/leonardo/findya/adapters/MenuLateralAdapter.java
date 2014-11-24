@@ -33,15 +33,15 @@ public class MenuLateralAdapter extends BaseAdapter {
         switch (position) {
             case 0:
                 viewHolder.icone.setImageResource(R.drawable.menu_lateral_ver_mapa);
-                viewHolder.texto.setText("Ver amigos");
+                viewHolder.texto.setText(R.string.menuVerAmigosBtnText);
                 break;
             case 1:
                 viewHolder.icone.setImageResource(R.drawable.menu_lateral_add_amigos);
-                viewHolder.texto.setText("+ Amigos");
+                viewHolder.texto.setText(R.string.menuAddAmigosBtnText);
                 break;
             case 2:
                 viewHolder.icone.setImageResource(R.drawable.menu_lateral_perfil);
-                viewHolder.texto.setText("Meu Perfil");
+                viewHolder.texto.setText(R.string.menuPerfilBtnText);
                 break;
 
             default:

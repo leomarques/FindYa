@@ -16,17 +16,8 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.util.Map;
-import java.util.Set;
-
-import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLSession;
 
 public class Util {
     public static final String LOGTAG = "findya";
@@ -45,11 +36,11 @@ public class Util {
         return (networkInfo != null && networkInfo.isConnected());
     }
 
-    public static final String pegarUrlFotoProfile(String idFace) {
+    public static String pegarUrlFotoProfile(String idFace) {
         return URL_PROFILE_PICTURE_INICIO + idFace + URL_PROFILE_PICTURE_FIM;
     }
 
-    public static final void imprimeReader(BufferedReader reader) {
+    public static void imprimeReader(BufferedReader reader) {
         String a;
         try {
             a = reader.readLine();
@@ -77,10 +68,8 @@ public class Util {
             HttpResponse response = client.execute(post);
             Log.i(Util.LOGTAG, response.getStatusLine().toString());
 
-            BufferedReader reader = new BufferedReader(new InputStreamReader(
+            return new BufferedReader(new InputStreamReader(
                     response.getEntity().getContent()));
-
-            return reader;
         } catch (URISyntaxException e) {
             Log.e("httpiml", "URISyntaxException  -" + e.toString());
         } catch (ClientProtocolException e) {
@@ -90,7 +79,7 @@ public class Util {
         }
         return null;
     }
-
+/*
     public static String gcmPost(String apiKey, String deviceRegistrationId,
                                  Map<String, String> params) throws IOException {
 
@@ -146,7 +135,7 @@ public class Util {
             return true;
         }
     }
-
+*/
     public static Bitmap pegarFotoUsuario() {
         return App.getImageLoader().getBmp(pegarUrlFotoProfile(App.getUsuario().getIdFace()));
     }

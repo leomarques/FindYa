@@ -13,7 +13,7 @@ import java.util.List;
 
 public class ConversorJson {
 
-    public static final Usuario getJsonToUsuario(BufferedReader reader) {
+    public static Usuario getJsonToUsuario(BufferedReader reader) {
         Usuario usuario = null;
 
         JsonParser parser = new JsonParser();
@@ -32,13 +32,13 @@ public class ConversorJson {
             usuario = new Gson().fromJson(dado, Usuario.class);
 
             JsonElement publico = jsonobjeto.get("publico");
-            usuario.setPublico(publico.getAsInt() == 1 ? true : false);
+            usuario.setPublico(publico.getAsInt() == 1);
         }
 
         return usuario;
     }
 
-    public static final List<Usuario> getJsonToUsuarios(BufferedReader reader) {
+    public static List<Usuario> getJsonToUsuarios(BufferedReader reader) {
         List<Usuario> usuarios = null;
 
         JsonParser parser = new JsonParser();
@@ -59,7 +59,7 @@ public class ConversorJson {
                 JsonObject dado = jsonElement.getAsJsonObject();
                 Usuario usuario = gson.fromJson(dado, Usuario.class);
                 JsonElement publico = dado.get("publico");
-                usuario.setPublico(publico.getAsInt() == 1 ? true : false);
+                usuario.setPublico(publico.getAsInt() == 1);
                 usuarios.add(usuario);
             }
         }
@@ -67,7 +67,7 @@ public class ConversorJson {
         return usuarios;
     }
 
-    public static final List<String> getJsonToListaIds(BufferedReader reader) {
+    public static List<String> getJsonToListaIds(BufferedReader reader) {
         List<String> listaIds = null;
 
         JsonParser parser = new JsonParser();

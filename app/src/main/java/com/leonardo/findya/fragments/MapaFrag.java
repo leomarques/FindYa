@@ -1,6 +1,5 @@
 package com.leonardo.findya.fragments;
 
-
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -54,7 +53,6 @@ public class MapaFrag extends Fragment {
     private static final float ZOOM = 13;
     private static final int MINDISTMOVE = 10;
 
-    public static final String USUARIOS_EXTRA = "usuariosExtra";
     @FragmentArg
     ArrayList<Usuario> usuarios;
 
@@ -78,7 +76,6 @@ public class MapaFrag extends Fragment {
             return;
         }
 
-
         if (mapa == null) {
             FragmentManager fm = getFragmentManager();
             mf = (MapFragment) fm.findFragmentById(R.id.map);
@@ -95,7 +92,7 @@ public class MapaFrag extends Fragment {
         usuarioMarcador = new HashMap<Usuario, Marker>();
         usuarioPosAnt = new HashMap<Usuario, LatLng>();
         for (Iterator<Usuario> iterator = usuarios.iterator(); iterator.hasNext();) {
-            Usuario usuario = (Usuario) iterator.next();
+            Usuario usuario = iterator.next();
             if (Util.semLocalizacao(usuario)) {
                 iterator.remove();
             } else {
@@ -108,7 +105,7 @@ public class MapaFrag extends Fragment {
         } catch (Exception e) {
             getFragmentManager().popBackStack();
         }
-        //mapa.setOnInfoWindowClickListener(new AdicionarAmigo());
+        mapa.setOnInfoWindowClickListener(new AdicionarAmigo());
 
         h = new Handler();
         r = new Runnable() {

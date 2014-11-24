@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">FindYa</string>
-    <string name="faecbook_id">1530376943874977</string>
+    <string name="facebook_id">1530376943874977</string>
     <string name="gmaps_key">AIzaSyBzGWlveRF6B_BdL_QmDR6hPxAQJETLni4</string>
 
     <string name="drawer_open">FindYa</string>
@@ -45,5 +45,8 @@
 
     <string name="amigosFaceNulo">Nenhum usuário encontrado.</string>
     <string name="solicitacoesNulo">Você não tem nenhuma solicitação de amizade.</string>
+    <string name="menuVerAmigosBtnText">Ver amigos</string>
+    <string name="menuAddAmigosBtnText">+ Amigos</string>
+    <string name="menuPerfilBtnText">Meu Perfil</string>
 
 </resources>

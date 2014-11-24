@@ -21,7 +21,7 @@ import org.androidannotations.annotations.EService;
 
 @EService
 public class LocalServ extends Service implements LocationListener {
-    private static final int INTERVALO_ATUALIZACAO = 30000;//30 segundos
+    private static final int INTERVALO_ATUALIZACAO = 5000;//30 segundos
     private static final int MAX_TENTATIVAS = 10;
 
     private PowerManager.WakeLock wl;
