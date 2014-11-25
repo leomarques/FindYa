@@ -17,8 +17,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.Map;
+import java.util.WeakHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -26,7 +27,8 @@ public class ImageLoader {
     final int stub_id = R.drawable.fya_icon;
     MemoryCache memoryCache = new MemoryCache();
     FileCache fileCache;
-    private Map<ImageView, String> imageViews =new HashMap<ImageView, String>();
+    private Map<ImageView, String> imageViews =
+            Collections.synchronizedMap(new WeakHashMap<ImageView, String>());
     ExecutorService executorService;
 
     public ImageLoader(Context context) {
@@ -74,7 +76,7 @@ public class ImageLoader {
 
         // from web
         try {
-            Bitmap bitmap = null;
+            Bitmap bitmap;
             URL imageUrl = new URL(url);
             HttpURLConnection conn = (HttpURLConnection) imageUrl
                     .openConnection();
@@ -106,6 +108,7 @@ public class ImageLoader {
                 os.write(bytes, 0, count);
             }
         } catch (Exception ex) {
+            ex.printStackTrace();
         }
     }
 
@@ -135,6 +138,7 @@ public class ImageLoader {
             o2.inSampleSize = scale;
             return BitmapFactory.decodeStream(new FileInputStream(f), null, o2);
         } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
         return null;
     }
@@ -174,9 +178,7 @@ public class ImageLoader {
 
     boolean imageViewReused(PhotoToLoad photoToLoad) {
         String tag = imageViews.get(photoToLoad.imageView);
-        if (tag == null || !tag.equals(photoToLoad.url))
-            return true;
-        return false;
+        return tag == null || !tag.equals(photoToLoad.url);
     }
 
     // Used to display bitmap in the UI thread
