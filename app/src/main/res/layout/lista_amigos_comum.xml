@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/listaAmigosComum_layoutAmigosComum"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/light_green">
+
+    <ImageView
+        android:id="@+id/listaAmigosComum_foto"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp" />
+
+    <TextView
+        android:id="@+id/listaAmigosComum_nome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/listaAmigosComum_foto"
+        android:textColor="@color/medium_green"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/listaAmigosComum_freq"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/listaAmigosComum_nome"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/listaAmigosComum_foto"
+        android:textColor="@color/medium_green"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/listaAmigosComum_add"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/add_amigo_add" />
+
+</RelativeLayout>

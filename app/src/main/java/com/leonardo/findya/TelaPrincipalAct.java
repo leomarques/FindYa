@@ -22,6 +22,7 @@ import android.widget.TextView;
 
 import com.leonardo.findya.adapters.MenuLateralAdapter;
 import com.leonardo.findya.adapters.MenuLateralListener;
+import com.leonardo.findya.fragments.AddAmigosFrag_;
 import com.leonardo.findya.fragments.ListaAmigosFrag_;
 import com.leonardo.findya.outros.App;
 import com.leonardo.findya.outros.GerenciadorServico;
@@ -37,12 +38,10 @@ import org.androidannotations.annotations.ViewById;
 public class TelaPrincipalAct extends Activity {
 
     @ViewById
-    public
-    ListView menuLateral;
+    public ListView menuLateral;
 
     @ViewById
-    public
-    DrawerLayout drawerLayout;
+    public DrawerLayout drawerLayout;
 
     public ActionBarDrawerToggle mDrawerToggle;
 
@@ -50,6 +49,7 @@ public class TelaPrincipalAct extends Activity {
 
     private static final int VOLTANDO_ATIVAR_GPS = 352;
 
+    @SuppressWarnings("ConstantConditions")
     @AfterViews
     public void aoCriar() {
         mDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout,
@@ -70,8 +70,7 @@ public class TelaPrincipalAct extends Activity {
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
 
-        //Fragment f = App.getAmigos().isEmpty() ? new AddAmigosFrag_() : new ListaAmigosFrag_();
-        Fragment f = new ListaAmigosFrag_();
+        Fragment f = App.getAmigos().isEmpty() ? new AddAmigosFrag_() : new ListaAmigosFrag_();
         getFragmentManager().beginTransaction().replace(R.id.frame, f).commit();
 
         if (!GerenciadorServico.isServicoAtivado()) {

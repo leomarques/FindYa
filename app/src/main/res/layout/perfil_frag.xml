@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fundo">
+
+    <ImageView
+        android:id="@+id/foto"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:id="@+id/nome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/foto"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/medium_green"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:id="@+id/layoutStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nome"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@color/light_green">
+
+        <ImageView
+            android:id="@+id/iconeStatus"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/perfil_status" />
+
+        <EditText
+            android:id="@+id/editTextStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/iconeStatus"
+            android:layout_marginBottom="3dp"
+            android:layout_toEndOf="@+id/iconeStatus"
+            android:layout_toRightOf="@+id/iconeStatus"
+            android:inputType="textCapSentences"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <CheckBox
+        android:id="@+id/publicoCkBx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layoutStatus"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="@string/textoNaoPublico"
+        android:textColor="@color/dark_green"
+        android:textSize="16sp" />
+
+    <RelativeLayout
+        android:id="@+id/layoutSair"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/light_gray"
+        android:padding="5dp">
+
+        <RelativeLayout
+            android:id="@+id/layoutSair2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true">
+
+            <ImageView
+                android:id="@+id/iconeSair"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/perfil_sair" />
+
+            <TextView
+                android:id="@+id/textoSair"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/iconeSair"
+                android:text="@string/textoSair"
+                android:textColor="@color/preto"
+                android:textSize="14sp" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

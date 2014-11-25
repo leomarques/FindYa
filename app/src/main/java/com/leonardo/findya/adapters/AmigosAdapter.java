@@ -132,28 +132,6 @@ public class AmigosAdapter extends BaseAdapter {
         */
     }
 
-    public class ExcluiAmigo extends AsyncTask<Usuario, Void, Void> {
-
-        @Override
-        protected Void doInBackground(Usuario... arg0) {
-            UsuarioDao.excluirAmigo(arg0[0]);
-
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void result) {
-            Toast.makeText(App.inst(), R.string.amigoExcluido,
-                    Toast.LENGTH_SHORT).show();
-            /*
-            ((ActionBarActivity) context).getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.frame, new ListaAmigosFrag_()).commit();
-                    */
-        }
-
-    }
-
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         AmigosViewHolder viewHolder;
@@ -169,8 +147,6 @@ public class AmigosAdapter extends BaseAdapter {
                     .findViewById(R.id.listaAmigos_layoutHeader);
             viewHolder.img = (ImageView) convertView
                     .findViewById(R.id.listaAmigos_foto);
-            viewHolder.opcoes = (ImageView) convertView
-                    .findViewById(R.id.listaAmigos_opcoes);
             viewHolder.nome = (TextView) convertView
                     .findViewById(R.id.listaAmigos_nome);
             viewHolder.distancia = (TextView) convertView
@@ -260,11 +236,32 @@ public class AmigosAdapter extends BaseAdapter {
     static class AmigosViewHolder {
         RelativeLayout lh;
         ImageView img;
-        ImageView opcoes;
         TextView nome;
         TextView distancia;
         TextView data;
         TextView status;
+    }
+
+    public class ExcluiAmigo extends AsyncTask<Usuario, Void, Void> {
+
+        @Override
+        protected Void doInBackground(Usuario... arg0) {
+            UsuarioDao.excluirAmigo(arg0[0]);
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            Toast.makeText(App.inst(), R.string.amigoExcluido,
+                    Toast.LENGTH_SHORT).show();
+            /*
+            ((ActionBarActivity) context).getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.frame, new ListaAmigosFrag_()).commit();
+                    */
+        }
+
     }
 
 }

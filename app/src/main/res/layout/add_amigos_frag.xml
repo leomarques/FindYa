@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fundo">
+
+    <RelativeLayout
+        android:id="@+id/layoutAmigosFace"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:background="@color/branco">
+
+        <ImageView
+            android:id="@+id/iconeAmigosFace"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/add_amigo_face" />
+
+        <TextView
+            android:id="@+id/tituloAmigosFace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/iconeAmigosFace"
+            android:text="@string/tituloAmigosFace"
+            android:textColor="@color/dark_green"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layoutAmigosComum"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layoutAmigosFace"
+        android:layout_marginTop="3dp"
+        android:background="@color/branco">
+
+        <ImageView
+            android:id="@+id/iconeAmigosComum"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/add_amigo_comum" />
+
+        <TextView
+            android:id="@+id/tituloAmigosComum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/iconeAmigosComum"
+            android:text="@string/tituloAmigosComum"
+            android:textColor="@color/dark_green"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layoutUsuariosPublicos"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layoutAmigosComum"
+        android:layout_marginTop="3dp"
+        android:background="@color/branco">
+
+        <ImageView
+            android:id="@+id/iconeUsuariosPublicos"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/add_amigo_publico" />
+
+        <TextView
+            android:id="@+id/tituloUsuariosPublicos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/iconeUsuariosPublicos"
+            android:text="@string/tituloUsuariosPublicos"
+            android:textColor="@color/dark_green"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layoutSolicitacoesAmizade"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layoutUsuariosPublicos"
+        android:layout_marginTop="3dp"
+        android:background="@color/branco">
+
+        <ImageView
+            android:id="@+id/iconeSolicitacoesAmizade"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/add_amigo_solic" />
+
+        <TextView
+            android:id="@+id/tituloSolicitacoesAmizade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/iconeSolicitacoesAmizade"
+            android:text="@string/tituloSolicitacoesAmizade"
+            android:textColor="@color/dark_green"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+</RelativeLayout>

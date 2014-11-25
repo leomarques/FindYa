@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/dark_green"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <ImageView
         android:id="@+id/menuLateral_foto"
@@ -18,7 +18,7 @@
         android:layout_height="62dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
-        android:src="@drawable/menu_lateral_moldura_foto"/>
+        android:src="@drawable/menu_lateral_moldura_foto" />
 
     <TextView
         android:id="@+id/menuLateral_nome"

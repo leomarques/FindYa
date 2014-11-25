@@ -1,6 +1,5 @@
 package com.leonardo.findya.fragments;
 
-
 import android.app.Fragment;
 import android.location.Location;
 import android.os.AsyncTask;
