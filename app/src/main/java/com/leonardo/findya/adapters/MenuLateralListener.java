@@ -8,13 +8,7 @@ import com.leonardo.findya.R;
 import com.leonardo.findya.TelaPrincipalAct;
 import com.leonardo.findya.fragments.AddAmigosFrag_;
 import com.leonardo.findya.fragments.ListaAmigosFrag_;
-import com.leonardo.findya.fragments.MapaFrag;
-import com.leonardo.findya.fragments.MapaFrag_;
 import com.leonardo.findya.fragments.PerfilFrag_;
-import com.leonardo.findya.outros.App;
-import com.leonardo.findya.outros.Usuario;
-
-import java.util.ArrayList;
 
 public class MenuLateralListener implements ListView.OnItemClickListener {
 
@@ -28,30 +22,18 @@ public class MenuLateralListener implements ListView.OnItemClickListener {
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         switch (position) {
             case 1:
-                MapaFrag f = (MapaFrag) telaPrincipalAct.getFragmentManager().findFragmentByTag("mapa");
-                if (f != null && f.isVisible()) {
-                    telaPrincipalAct.getFragmentManager().beginTransaction().replace(R.id.frame, new ListaAmigosFrag_()).commit();
-                    telaPrincipalAct.drawerLayout.closeDrawer(telaPrincipalAct.menuLateral);
-                    return;
-                }
-
-                ArrayList<Usuario> lista = (ArrayList<Usuario>) App.getAmigos();
-                lista.add(App.getUsuario());
-                f = MapaFrag_.builder().usuarios(lista).build();
-                telaPrincipalAct.getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.frame, f, "mapa").commit();
-                telaPrincipalAct.drawerLayout.closeDrawer(telaPrincipalAct.menuLateral);
+                telaPrincipalAct.getFragmentManager().beginTransaction().replace(R.id.frame, new ListaAmigosFrag_()).commit();
                 break;
             case 2:
                 telaPrincipalAct.getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.frame, new AddAmigosFrag_()).commit();
-                telaPrincipalAct.drawerLayout.closeDrawer(telaPrincipalAct.menuLateral);
                 break;
             case 3:
                 telaPrincipalAct.getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.frame, new PerfilFrag_()).commit();
-                telaPrincipalAct.drawerLayout.closeDrawer(telaPrincipalAct.menuLateral);
                 break;
             default:
                 break;
         }
+        telaPrincipalAct.drawerLayout.closeDrawer(telaPrincipalAct.menuLateral);
     }
 
 }
