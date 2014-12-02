@@ -25,7 +25,7 @@
     <string name="providerOutOfService">FindYa: Não é possível obter sua localização.</string>
     <string name="providerTemporarilyUnavailable">FindYa: Não será possível obter sua localização temporariamente.</string>
     <string name="providerAvailable">FindYa: Sua localização foi obtida.</string>
-    <string name="gpsDesligado">FindYa: O GPS foi desligado e o serviço de localização não pode continuar.</string>
+    <string name="providerDesligado">FindYa: O provedor de localização foi desativado.</string>
     <string name="semLocalizacao">FindYa: Sem localização</string>
     <string name="providerNulo">FindYa: Provedor de localização inacessível no seu aparelho.</string>
     <string name="semConexao">FindYa: Você não está conectado á internet.</string>

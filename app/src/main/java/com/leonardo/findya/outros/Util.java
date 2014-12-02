@@ -66,7 +66,7 @@ public class Util {
             post.setEntity(se);
 
             HttpResponse response = client.execute(post);
-            Log.i(Util.LOGTAG, response.getStatusLine().toString());
+            Log.i(Util.LOGTAG, response.getStatusLine().toString() + " - " + url);
 
             return new BufferedReader(new InputStreamReader(
                     response.getEntity().getContent()));
