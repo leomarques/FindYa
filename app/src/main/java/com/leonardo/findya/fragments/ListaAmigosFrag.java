@@ -5,6 +5,7 @@ import android.location.Location;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.leonardo.findya.R;
 import com.leonardo.findya.adapters.AmigosAdapter;
@@ -24,10 +25,24 @@ import java.util.List;
 public class ListaAmigosFrag extends Fragment {
     @ViewById
     public ListView listaAmigos;
+    @ViewById
+    public TextView listaVaziaText;
 
     @Override
     public void onResume() {
         super.onResume();
+
+        List<Usuario> amigos = App.getAmigos();
+        if (amigos != null && !amigos.isEmpty()) {
+            try {
+                listaAmigos.setAdapter(new AmigosAdapter(getActivity(), amigos));
+                listaVaziaText.setVisibility(TextView.GONE);
+            } catch (Exception e) {
+                Log.i(Util.LOGTAG, "erro p/ popular lista de amigos");
+            }
+        } else {
+            listaVaziaText.setVisibility(TextView.VISIBLE);
+        }
 
         new BaixaAmigos().execute();
     }

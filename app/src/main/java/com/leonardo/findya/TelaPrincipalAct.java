@@ -60,7 +60,7 @@ public class TelaPrincipalAct extends Activity {
         View row = getLayoutInflater().inflate(R.layout.menu_lateral_header,
                 menuLateral, false);
         ImageView foto = (ImageView) row.findViewById(R.id.menuLateral_foto);
-        foto.setImageBitmap(Util.pegarFotoUsuario());
+        pegarFotoAsync(foto);
         TextView nome = (TextView) row.findViewById(R.id.menuLateral_nome);
         nome.setText(App.getUsuario().getNome().split(" ")[0]);
 
@@ -76,6 +76,11 @@ public class TelaPrincipalAct extends Activity {
         if (!GerenciadorServico.isServicoAtivado()) {
             limparDispositivoNoBancoAsync();
         }
+    }
+
+    @Background
+    public void pegarFotoAsync(ImageView foto) {
+        foto.setImageBitmap(Util.pegarFotoUsuario());
     }
 
     @Background

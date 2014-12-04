@@ -47,8 +47,8 @@ public class PerfilFrag extends Fragment {
 
 	@AfterViews
 	public void aoCriar() {
-		foto.setImageBitmap(Util.pegarFotoUsuario());
-		nome.setText(App.getUsuario().getNome());
+        pegarFotoAsync();
+        nome.setText(App.getUsuario().getNome());
 		publicoCkBx.setChecked(!App.getUsuario().isPublico());
 		h = new Handler();
 		runSalvarStatus = new Runnable() {
@@ -72,7 +72,12 @@ public class PerfilFrag extends Fragment {
 		editTextStatus.setText(App.getUsuario().getStatus());
 	}
 
-	@AfterTextChange
+    @Background
+    public void pegarFotoAsync() {
+        foto.setImageBitmap(Util.pegarFotoUsuario());
+    }
+
+    @AfterTextChange
 	public void editTextStatus() {
 		if (editTextStatus.getText().toString()
 				.equals(App.getUsuario().getStatus())) {
