@@ -60,7 +60,7 @@ public class TelaPrincipalAct extends Activity {
         View row = getLayoutInflater().inflate(R.layout.menu_lateral_header,
                 menuLateral, false);
         ImageView foto = (ImageView) row.findViewById(R.id.menuLateral_foto);
-        pegarFotoAsync(foto);
+        App.getImageLoader().DisplayImage(Util.pegarUrlFotoProfile(App.getUsuario().getIdFace()), foto);
         TextView nome = (TextView) row.findViewById(R.id.menuLateral_nome);
         nome.setText(App.getUsuario().getNome().split(" ")[0]);
 
@@ -76,11 +76,6 @@ public class TelaPrincipalAct extends Activity {
         if (!GerenciadorServico.isServicoAtivado()) {
             limparDispositivoNoBancoAsync();
         }
-    }
-
-    @Background
-    public void pegarFotoAsync(ImageView foto) {
-        foto.setImageBitmap(Util.pegarFotoUsuario());
     }
 
     @Background
@@ -127,7 +122,7 @@ public class TelaPrincipalAct extends Activity {
 
     void mudarServico() {
         if (GerenciadorServico.isServicoAtivado()) {
-            new MudaServico().execute();
+            new MudaServico(true).execute();
         } else {
             boolean gpsEnabled = ((LocationManager) getSystemService(Context.LOCATION_SERVICE))
                     .isProviderEnabled(LocationManager.GPS_PROVIDER);
@@ -151,16 +146,21 @@ public class TelaPrincipalAct extends Activity {
                         .setNegativeButton("Não", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface arg0, int arg1) {
-                                new MudaServico().execute();
+                                new MudaServico(true).execute();
                             }
                         }).show();
             } else {
-                new MudaServico().execute();
+                new MudaServico(false).execute();
             }
         }
     }
 
     private class MudaServico extends AsyncTask<Void, Void, Void> {
+       public MudaServico(boolean ativado) {
+            if (!ativado)
+                menuItemServ.setIcon(R.drawable.ab_servico_oe);
+        }
+
         @Override
         protected Void doInBackground(Void... arg0) {
             GerenciadorServico.mudarServico();
@@ -185,7 +185,7 @@ public class TelaPrincipalAct extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == VOLTANDO_ATIVAR_GPS) {
-            new MudaServico().execute();
+            new MudaServico(false).execute();
         }
     }
 
