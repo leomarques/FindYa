@@ -78,7 +78,10 @@ public class ListaAmigosFrag extends Fragment {
         @Override
         protected void onPostExecute(Void result) {
             try {
-                listaAmigos.setAdapter(new AmigosAdapter(getActivity(), amigos));
+                if (amigos != null && !amigos.isEmpty()) {
+                    listaAmigos.setAdapter(new AmigosAdapter(getActivity(), amigos));
+                    listaVaziaText.setVisibility(TextView.GONE);
+                }
             } catch (Exception e) {
                 Log.i(Util.LOGTAG, "erro p/ popular lista de amigos");
             }

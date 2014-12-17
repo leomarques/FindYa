@@ -7,16 +7,18 @@
     <ListView
         android:id="@+id/listaAmigos"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:divider="@color/gray"
+        android:dividerHeight="1dp"/>
 
     <TextView
+        android:id="@+id/listaVaziaText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Sua lista de amigos está vazia"
-        android:visibility="gone"
-        android:id="@+id/listaVaziaText"
+        android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:text="@string/listaAmigosVazia"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:visibility="gone" />
 
 </RelativeLayout>

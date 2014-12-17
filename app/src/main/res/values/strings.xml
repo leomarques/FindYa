@@ -50,5 +50,6 @@
     <string name="menuVerAmigosBtnText">Ver amigos</string>
     <string name="menuAddAmigosBtnText">+ Amigos</string>
     <string name="menuPerfilBtnText">Meu Perfil</string>
+    <string name="listaAmigosVazia">Sua lista de amigos está vazia</string>
 
 </resources>
