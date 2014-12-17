@@ -22,7 +22,7 @@ public class MenuLateralListener implements ListView.OnItemClickListener {
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         switch (position) {
             case 1:
-                telaPrincipalAct.getFragmentManager().beginTransaction().replace(R.id.frame, new ListaAmigosFrag_()).commit();
+                telaPrincipalAct.getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.frame, new ListaAmigosFrag_()).commit();
                 break;
             case 2:
                 telaPrincipalAct.getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.frame, new AddAmigosFrag_()).commit();
