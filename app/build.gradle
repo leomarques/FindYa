@@ -15,6 +15,9 @@ android {
     buildTypes {
         release {
             minifyEnabled false
+            proguardFile 'proguard-google-play-services.pro'
+            proguardFile 'proguard-gson.pro'
+            proguardFile 'proguard-facebook.pro'
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
