@@ -37,13 +37,13 @@
     <string name="textoNaoPublico">Não aparecer para usuários públicos</string>
 
     <string name="tituloAmigosFace">Amigos do Facebook</string>
-    <string name="textoAmigosFace">Você pode procurar por seus amigos do Facebook que também usam o FindYa.</string>
+    <string name="textoAddAmigosFace">Você pode procurar por seus amigos do Facebook que também usam o FindYa.</string>
     <string name="tituloAmigosComum">Amigos em comum</string>
-    <string name="textoAmigosComum">Você pode procurar por pessoas que tenham amigos em comum com você no FindYa.</string>
+    <string name="textoAddAmigosComum">Você pode procurar por pessoas que tenham amigos em comum com você no FindYa.</string>
     <string name="tituloUsuariosPublicos">Usuarios Públicos</string>
-    <string name="textoUsuariosPublicos">Você pode procurar por usuários públicos perto de onde você está.</string>
+    <string name="textoAddAmigosPublico">Você pode procurar por usuários públicos perto de onde você está.</string>
     <string name="tituloSolicitacoesAmizade">Solicitações de Amizade</string>
-    <string name="textoSolicitacoesAmizade">Veja as solicitações de amizade que você recebeu.</string>
+    <string name="textoAddAmigosSolicitacoes">Veja as solicitações de amizade que você recebeu.</string>
 
     <string name="amigosFaceNulo">Nenhum usuário encontrado.</string>
     <string name="solicitacoesNulo">Você não tem nenhuma solicitação de amizade.</string>

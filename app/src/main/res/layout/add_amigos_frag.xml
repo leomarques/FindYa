@@ -37,7 +37,7 @@
             android:layout_alignParentStart="true"
             android:layout_below="@+id/iconeAmigosFace"
             android:paddingLeft="3dp"
-            android:text="Encontre seus amigos do Facebook que também usam o FindYa"
+            android:text="@string/textoAddAmigosFace"
             android:textColor="@color/dark_green" />
     </RelativeLayout>
 
@@ -73,7 +73,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/iconeAmigosComum"
             android:paddingLeft="3dp"
-            android:text="Encontre amigos em comum de seus amigos no FindYa"
+            android:text="@string/textoAddAmigosComum"
             android:textColor="@color/dark_green" />
     </RelativeLayout>
 
@@ -109,7 +109,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/iconeUsuariosPublicos"
             android:paddingLeft="3dp"
-            android:text="Encontre usuários públicos próximo de onde você está"
+            android:text="@string/textoAddAmigosPublico"
             android:textColor="@color/dark_green" />
     </RelativeLayout>
 
@@ -145,7 +145,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/iconeSolicitacoesAmizade"
             android:paddingLeft="3dp"
-            android:text="Veja suas solicitações de amizade"
+            android:text="@string/textoAddAmigosSolicitacoes"
             android:textColor="@color/dark_green" />
     </RelativeLayout>
 
