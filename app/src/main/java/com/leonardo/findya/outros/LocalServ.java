@@ -30,6 +30,8 @@ public class LocalServ extends Service implements LocationListener {
 
     private Location localAtual;
 
+    private LocationManager locationManager;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -41,15 +43,26 @@ public class LocalServ extends Service implements LocationListener {
 
         tentativas = 0;
 
-        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, INTERVALO_ATUALIZACAO, 0, this);
-        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, INTERVALO_ATUALIZACAO, 0, this);
+        boolean a = false;
+        if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, INTERVALO_ATUALIZACAO, 0, this);
+            a = true;
+        }
+        if (locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
+            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, INTERVALO_ATUALIZACAO, 0, this);
+            a = true;
+        }
+        if (!a) {
+            Toast.makeText(getApplicationContext(), getString(R.string.nenhumProvider), Toast.LENGTH_LONG).show();
+            stopSelf();
+        }
     }
 
     @Override
     public void onLocationChanged(Location location) {
-        Log.i(LOGTAG, "onLocationChanged");
+        Log.i(LOGTAG, "onLocationChanged por " + location.getProvider());
 
         if (isNovoLocalMelhor(location)) {
             localAtual = location;
@@ -128,9 +141,15 @@ public class LocalServ extends Service implements LocationListener {
 
     @Override
     public void onProviderDisabled(String provider) {
-        Toast.makeText(getApplicationContext(), R.string.providerDesligado, Toast.LENGTH_LONG).show();
         Log.i(LOGTAG, "onProviderDisabled - " + provider);
-        stopSelf();
+        if (!algumProviderAtivo()) {
+            Toast.makeText(getApplicationContext(), getString(R.string.nenhumProvider), Toast.LENGTH_LONG).show();
+            stopSelf();
+        }
+    }
+
+    private boolean algumProviderAtivo() {
+        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
     }
 
     @Override

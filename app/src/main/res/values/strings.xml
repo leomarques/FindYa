@@ -52,5 +52,6 @@
     <string name="menuAddAmigosBtnText">+ Amigos</string>
     <string name="menuPerfilBtnText">Meu Perfil</string>
     <string name="listaAmigosVazia">Sua lista de amigos está vazia</string>
+    <string name="nenhumProvider">FindYa: Nenhum provedor de localização disponível</string>
 
 </resources>
