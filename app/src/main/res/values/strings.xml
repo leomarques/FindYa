@@ -3,8 +3,7 @@
 
     <string name="app_name">FindYa</string>
     <string name="facebook_id">1530376943874977</string>
-    <string name="gmaps_key_hyp_release">AIzaSyDBt-Ozn-5XZA_FIKa3IUMR8y74sSyqu8A</string>
-    <string name="gmaps_key_hyp">AIzaSyBzGWlveRF6B_BdL_QmDR6hPxAQJETLni4</string>
+    <string name="gmaps_key_hyp">AIzaSyAOLyClS52Z6mROy9cRjN_cnk1BhAUP3fA</string>
     <string name="gmaps_key_yam">AIzaSyC7K_li-E4nQ9qRhgaQeadHGFxvxz2hQJ8</string>
 
     <string name="drawer_open">FindYa</string>
