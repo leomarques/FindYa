@@ -2,7 +2,6 @@ package com.leonardo.findya.outros;
 
 import com.google.gson.Gson;
 
-import java.io.BufferedReader;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -71,25 +70,25 @@ public class UsuarioDao {
     public static List<Usuario> buscarAmigosDosAmigos() {
         String usuarioJson = new Gson().toJson(App.getUsuario().getIdFace());
 
-        BufferedReader reader = Util.jsonPost(URL_BUSCARAMIGOSDOSAMIGOS, usuarioJson);
+        String jsonResposta = Util.jsonPost(URL_BUSCARAMIGOSDOSAMIGOS, usuarioJson);
 
-        return ConversorJson.getJsonToUsuarios(reader);
+        return ConversorJson.getJsonToUsuarios(jsonResposta);
     }
 
     public static String buscarDispositivo() {
         String usuarioJson = new Gson().toJson(App.getUsuario());
 
-        BufferedReader reader = Util.jsonPost(URL_BUSCARDISPOSITIVO, usuarioJson);
+        String jsonResposta = Util.jsonPost(URL_BUSCARDISPOSITIVO, usuarioJson);
 
-        return ConversorJson.getJsonToIdInstalacao(reader);
+        return ConversorJson.getJsonToIdInstalacao(jsonResposta);
     }
 
     public static String buscarDispositivoAtivo() {
         String idJson = new Gson().toJson(App.getUsuario().getIdFace());
 
-        BufferedReader reader = Util.jsonPost(URL_BUSCARDISPOSITIVOATIVO, idJson);
+        String jsonResposta = Util.jsonPost(URL_BUSCARDISPOSITIVOATIVO, idJson);
 
-        return ConversorJson.getJsonToIdInstalacao(reader);
+        return ConversorJson.getJsonToIdInstalacao(jsonResposta);
     }
 
     /*
@@ -100,73 +99,73 @@ public class UsuarioDao {
         idsAmigos.add(0, App.getUsuario().getIdFace());
         String idsAmigosJson = new Gson().toJson(idsAmigos);
 
-        BufferedReader reader = Util.jsonPost(URL_BUSCARIDSUSUARIOSNAOAMIGOS, idsAmigosJson);
+        String jsonResposta = Util.jsonPost(URL_BUSCARIDSUSUARIOSNAOAMIGOS, idsAmigosJson);
 
-        return ConversorJson.getJsonToListaIds(reader);
+        return ConversorJson.getJsonToListaIds(jsonResposta);
     }
 
     public static List<Usuario> buscarSolicitados() {
         String usuarioJson = new Gson().toJson(App.getUsuario().getIdFace());
 
-        BufferedReader reader = Util.jsonPost(URL_BUSCARSOLICITADOS, usuarioJson);
+        String jsonResposta = Util.jsonPost(URL_BUSCARSOLICITADOS, usuarioJson);
 
-        return ConversorJson.getJsonToUsuarios(reader);
+        return ConversorJson.getJsonToUsuarios(jsonResposta);
     }
 
     public static List<Usuario> buscarSolicitantes() {
         String usuarioJson = new Gson().toJson(App.getUsuario().getIdFace());
 
-        BufferedReader reader = Util.jsonPost(URL_BUSCARSOLICITANTES, usuarioJson);
+        String jsonResposta = Util.jsonPost(URL_BUSCARSOLICITANTES, usuarioJson);
 
-        return ConversorJson.getJsonToUsuarios(reader);
+        return ConversorJson.getJsonToUsuarios(jsonResposta);
     }
 
     public static List<Usuario> buscarSolicitantesOcultos() {
         String usuarioJson = new Gson().toJson(App.getUsuario().getIdFace());
 
-        BufferedReader reader = Util.jsonPost(URL_BUSCARSOLICITANTESOCULTOS, usuarioJson);
+        String jsonResposta = Util.jsonPost(URL_BUSCARSOLICITANTESOCULTOS, usuarioJson);
 
-        return ConversorJson.getJsonToUsuarios(reader);
+        return ConversorJson.getJsonToUsuarios(jsonResposta);
     }
 
     public static List<Usuario> buscarTodosAmigos() {
         String usuarioJson = new Gson().toJson(App.getUsuario().getIdFace());
 
-        BufferedReader reader = Util.jsonPost(URL_BUSCARTODOSAMIGOS, usuarioJson);
+        String jsonResposta = Util.jsonPost(URL_BUSCARTODOSAMIGOS, usuarioJson);
 
-        return ConversorJson.getJsonToUsuarios(reader);
+        return ConversorJson.getJsonToUsuarios(jsonResposta);
     }
 
     public static List<Usuario> buscarTodosUsuariosPublicos() {
         String usuarioJson = new Gson().toJson(App.getUsuario().getIdFace());
 
-        BufferedReader reader = Util.jsonPost(URL_BUSCARTODOSUSUARIOSPUBLICOS, usuarioJson);
+        String jsonResposta = Util.jsonPost(URL_BUSCARTODOSUSUARIOSPUBLICOS, usuarioJson);
 
-        return ConversorJson.getJsonToUsuarios(reader);
+        return ConversorJson.getJsonToUsuarios(jsonResposta);
     }
 
     public static Usuario buscarUsuarioPorIdFace(String id) {
         String usuarioJson = new Gson().toJson(id);
 
-        BufferedReader reader = Util.jsonPost(URL_BUSCARUSUARIOPORIDFACE, usuarioJson);
+        String jsonResposta = Util.jsonPost(URL_BUSCARUSUARIOPORIDFACE, usuarioJson);
 
-        return ConversorJson.getJsonToUsuario(reader);
+        return ConversorJson.getJsonToUsuario(jsonResposta);
     }
 
     public static List<Usuario> buscarUsuariosPorIdFace(ArrayList<String> idsUsuarios) {
         String usuarioJson = new Gson().toJson(idsUsuarios);
 
-        BufferedReader reader = Util.jsonPost(URL_BUSCARUSUARIOSPORIDFACE, usuarioJson);
+        String jsonResposta = Util.jsonPost(URL_BUSCARUSUARIOSPORIDFACE, usuarioJson);
 
-        return ConversorJson.getJsonToUsuarios(reader);
+        return ConversorJson.getJsonToUsuarios(jsonResposta);
     }
 
     public static List<Usuario> buscarUsuariosPublicosNoQuadrante(Map<String, Double> quadrante) {
         String usuarioJson = new Gson().toJson(quadrante);
 
-        BufferedReader reader = Util.jsonPost(URL_BUSCARUSUARIOSPUBLICOSNOQUADRANTE, usuarioJson);
+        String jsonResposta = Util.jsonPost(URL_BUSCARUSUARIOSPUBLICOSNOQUADRANTE, usuarioJson);
 
-        return ConversorJson.getJsonToUsuarios(reader);
+        return ConversorJson.getJsonToUsuarios(jsonResposta);
     }
 
     public static void cadastrarUsuario() {

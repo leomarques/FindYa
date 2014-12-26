@@ -7,19 +7,18 @@ import com.google.gson.JsonNull;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-import java.io.BufferedReader;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ConversorJson {
 
-    public static Usuario getJsonToUsuario(BufferedReader reader) {
+    public static Usuario getJsonToUsuario(String jsonResposta) {
         Usuario usuario = null;
 
         JsonParser parser = new JsonParser();
         Object obj = null;
         try {
-            obj = parser.parse(reader);
+            obj = parser.parse(jsonResposta);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -38,13 +37,13 @@ public class ConversorJson {
         return usuario;
     }
 
-    public static List<Usuario> getJsonToUsuarios(BufferedReader reader) {
+    public static List<Usuario> getJsonToUsuarios(String jsonResposta) {
         List<Usuario> usuarios = null;
 
         JsonParser parser = new JsonParser();
         Object obj = null;
         try {
-            obj = parser.parse(reader);
+            obj = parser.parse(jsonResposta);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -67,13 +66,13 @@ public class ConversorJson {
         return usuarios;
     }
 
-    public static List<String> getJsonToListaIds(BufferedReader reader) {
+    public static List<String> getJsonToListaIds(String jsonResposta) {
         List<String> listaIds = null;
 
         JsonParser parser = new JsonParser();
         Object obj = null;
         try {
-            obj = parser.parse(reader);
+            obj = parser.parse(jsonResposta);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -95,13 +94,13 @@ public class ConversorJson {
         return listaIds;
     }
 
-    public static String getJsonToIdInstalacao(BufferedReader reader) {
+    public static String getJsonToIdInstalacao(String jsonResposta) {
         String idInstalacao = null;
 
         JsonParser parser = new JsonParser();
         Object obj = null;
         try {
-            obj = parser.parse(reader);
+            obj = parser.parse(jsonResposta);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -117,13 +116,13 @@ public class ConversorJson {
         return idInstalacao;
     }
 
-    public static String getJsonToStatus(BufferedReader reader) {
+    public static String getJsonToStatus(String jsonResposta) {
         String idInstalacao = null;
 
         JsonParser parser = new JsonParser();
         Object obj = null;
         try {
-            obj = parser.parse(reader);
+            obj = parser.parse(jsonResposta);
         } catch (Exception e) {
             e.printStackTrace();
             return null;

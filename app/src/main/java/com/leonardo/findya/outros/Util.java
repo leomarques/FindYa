@@ -5,24 +5,21 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.DefaultHttpClient;
+import com.squareup.okhttp.MediaType;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.RequestBody;
+import com.squareup.okhttp.Response;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URI;
-import java.net.URISyntaxException;
 
 public class Util {
     public static final String LOGTAG = "findya";
 
     public static final String URL_PROFILE_PICTURE_INICIO = "https://graph.facebook.com/";
     public static final String URL_PROFILE_PICTURE_FIM = "/picture";
+
+    public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 
     public static boolean semLocalizacao(Usuario usuario) {
         return usuario.getLatitude() == 0 && usuario.getLongitude() == 0;
@@ -52,31 +49,24 @@ public class Util {
         }
     }
 
-    public static BufferedReader jsonPost(String url, String json) {
+    public static String jsonPost(String url, String json) {
+        RequestBody body = RequestBody.create(JSON, json);
+        Request request = new Request.Builder()
+                .url(url)
+                .post(body)
+                .build();
+
+        String resposta = null;
         try {
-            HttpClient client = new DefaultHttpClient();
-            URI website = new URI(url);
-
-            HttpPost post = new HttpPost();
-            post.setURI(website);
-
-            StringEntity se = new StringEntity(json);
-            se.setContentType("text/xml");
-            post.setEntity(se);
-
-            HttpResponse response = client.execute(post);
-            Log.i(Util.LOGTAG, response.getStatusLine().toString() + " - " + url);
-
-            return new BufferedReader(new InputStreamReader(
-                    response.getEntity().getContent()));
-        } catch (URISyntaxException e) {
-            Log.e("httpiml", "URISyntaxException  -" + e.toString());
-        } catch (ClientProtocolException e) {
-            Log.e("httpiml", "ClientProtocolException  -" + e.toString());
-        } catch (IOException e) {
-            Log.e("httpiml", "IOException  -" + e.toString());
+            Response response = App.inst().getClient().newCall(request).execute();
+            Log.i(Util.LOGTAG, response.message() + " - " + url);
+            resposta = response.body().string();
+            return resposta;
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        return null;
+
+        return resposta;
     }
 /*
     public static String gcmPost(String apiKey, String deviceRegistrationId,

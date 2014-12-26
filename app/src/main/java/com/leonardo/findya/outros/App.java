@@ -3,6 +3,7 @@ package com.leonardo.findya.outros;
 import android.app.Application;
 
 import com.facebook.Session;
+import com.squareup.okhttp.OkHttpClient;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +13,7 @@ public class App extends Application {
     private static Usuario usuario;
     private static List<Usuario> amigos;
     private static List<Usuario> solicitados;
+    private OkHttpClient client;
 
     public static final String ARQUIVO_USUARIO = "usuario";
     private static final String ARQUIVO_AMIGOS = "amigos";
@@ -88,6 +90,12 @@ public class App extends Application {
 
     public static void salvarUsuario() {
         LocalPersistence.writeObjectToFile(usuario, ARQUIVO_USUARIO);
+    }
+
+    public OkHttpClient getClient() {
+        if (client == null)
+            client = new OkHttpClient();
+        return client;
     }
 
     public static void logOff() {
