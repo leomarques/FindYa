@@ -1,12 +1,12 @@
 package com.leonardo.findya;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 
 import com.facebook.UiLifecycleHelper;
 import com.facebook.model.GraphUser;
@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @EActivity(R.layout.login)
-public class LoginAct extends FragmentActivity {
+public class LoginAct extends Activity {
     @ViewById
     public LoginButton loginButton;
     private UiLifecycleHelper uiHelper;
