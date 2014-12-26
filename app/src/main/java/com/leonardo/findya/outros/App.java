@@ -3,7 +3,6 @@ package com.leonardo.findya.outros;
 import android.app.Application;
 
 import com.facebook.Session;
-import com.leonardo.findya.imageloader.ImageLoader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +12,6 @@ public class App extends Application {
     private static Usuario usuario;
     private static List<Usuario> amigos;
     private static List<Usuario> solicitados;
-    private static ImageLoader imageLoader;
 
     public static final String ARQUIVO_USUARIO = "usuario";
     private static final String ARQUIVO_AMIGOS = "amigos";
@@ -90,14 +88,6 @@ public class App extends Application {
 
     public static void salvarUsuario() {
         LocalPersistence.writeObjectToFile(usuario, ARQUIVO_USUARIO);
-    }
-
-    public static ImageLoader getImageLoader() {
-        if (imageLoader == null) {
-            imageLoader = new ImageLoader(inst);
-        }
-
-        return imageLoader;
     }
 
     public static void logOff() {

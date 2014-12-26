@@ -31,9 +31,11 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.leonardo.findya.R;
 import com.leonardo.findya.acoes.EnviarSolicitacoesAmizade;
 import com.leonardo.findya.outros.App;
+import com.leonardo.findya.outros.RoundedImageView;
 import com.leonardo.findya.outros.Usuario;
 import com.leonardo.findya.outros.UsuarioDao;
 import com.leonardo.findya.outros.Util;
+import com.squareup.picasso.Picasso;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EFragment;
@@ -212,7 +214,7 @@ public class MapaFrag extends Fragment {
 
             try {
                 String urlFoto = Util.pegarUrlFotoProfile(idFace);
-                Bitmap foto = App.getImageLoader().getBmp(urlFoto);
+                Bitmap foto = Picasso.with(getActivity()).load(urlFoto).placeholder(R.drawable.fya_icon).transform(new RoundedImageView()).get();
                 BitmapDescriptor bmp = BitmapDescriptorFactory.fromBitmap(foto);
                 markerOptions = new MarkerOptions().position(latlng).title(nome).icon(bmp);
             } catch (Exception e) {

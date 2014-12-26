@@ -1,7 +1,6 @@
 package com.leonardo.findya.outros;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
@@ -136,7 +135,4 @@ public class Util {
         }
     }
 */
-    public static Bitmap pegarFotoUsuario() {
-        return App.getImageLoader().getBmp(pegarUrlFotoProfile(App.getUsuario().getIdFace()));
-    }
 }

@@ -12,8 +12,10 @@ import android.widget.TextView;
 import com.leonardo.findya.R;
 import com.leonardo.findya.acoes.EnviarSolicitacoesAmizade;
 import com.leonardo.findya.outros.App;
+import com.leonardo.findya.outros.RoundedImageView;
 import com.leonardo.findya.outros.Usuario;
 import com.leonardo.findya.outros.Util;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -51,7 +53,7 @@ public class SolicitacoesAdapter extends BaseAdapter {
         final Usuario amigo = lista.get(position);
 
         String url = Util.pegarUrlFotoProfile(amigo.getIdFace());
-        App.getImageLoader().DisplayImage(url, viewHolder.foto);
+        Picasso.with(App.inst()).load(url).placeholder(R.drawable.fya_icon).transform(new RoundedImageView()).into(viewHolder.foto);
 
         viewHolder.nome.setText(amigo.getNome());
 

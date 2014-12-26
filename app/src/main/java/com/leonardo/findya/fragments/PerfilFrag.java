@@ -15,8 +15,10 @@ import android.widget.TextView;
 import com.leonardo.findya.LoginAct_;
 import com.leonardo.findya.R;
 import com.leonardo.findya.outros.App;
+import com.leonardo.findya.outros.RoundedImageView;
 import com.leonardo.findya.outros.UsuarioDao;
 import com.leonardo.findya.outros.Util;
+import com.squareup.picasso.Picasso;
 
 import org.androidannotations.annotations.AfterTextChange;
 import org.androidannotations.annotations.AfterViews;
@@ -47,7 +49,7 @@ public class PerfilFrag extends Fragment {
 
 	@AfterViews
 	public void aoCriar() {
-        App.getImageLoader().DisplayImage(Util.pegarUrlFotoProfile(App.getUsuario().getIdFace()), foto);
+        Picasso.with(getActivity()).load(Util.pegarUrlFotoProfile(App.getUsuario().getIdFace())).placeholder(R.drawable.fya_icon).transform(new RoundedImageView()).into(foto);
         nome.setText(App.getUsuario().getNome());
 		publicoCkBx.setChecked(!App.getUsuario().isPublico());
 		h = new Handler();

@@ -26,8 +26,10 @@ import com.leonardo.findya.fragments.AddAmigosFrag_;
 import com.leonardo.findya.fragments.ListaAmigosFrag_;
 import com.leonardo.findya.outros.App;
 import com.leonardo.findya.outros.GerenciadorServico;
+import com.leonardo.findya.outros.RoundedImageView;
 import com.leonardo.findya.outros.UsuarioDao;
 import com.leonardo.findya.outros.Util;
+import com.squareup.picasso.Picasso;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
@@ -60,7 +62,7 @@ public class TelaPrincipalAct extends Activity {
         View row = getLayoutInflater().inflate(R.layout.menu_lateral_header,
                 menuLateral, false);
         ImageView foto = (ImageView) row.findViewById(R.id.menuLateral_foto);
-        App.getImageLoader().DisplayImage(Util.pegarUrlFotoProfile(App.getUsuario().getIdFace()), foto);
+        Picasso.with(this).load(Util.pegarUrlFotoProfile(App.getUsuario().getIdFace())).placeholder(R.drawable.fya_icon).transform(new RoundedImageView()).into(foto);
         TextView nome = (TextView) row.findViewById(R.id.menuLateral_nome);
         nome.setText(App.getUsuario().getNome().split(" ")[0]);
 

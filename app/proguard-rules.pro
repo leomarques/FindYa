@@ -17,3 +17,4 @@
 #}
 # -- Android Annotations --
 -dontwarn org.springframework.**
+-dontwarn com.squareup.okhttp.**

@@ -17,9 +17,11 @@ import com.leonardo.findya.R;
 import com.leonardo.findya.fragments.MapaFrag;
 import com.leonardo.findya.fragments.MapaFrag_;
 import com.leonardo.findya.outros.App;
+import com.leonardo.findya.outros.RoundedImageView;
 import com.leonardo.findya.outros.Usuario;
 import com.leonardo.findya.outros.UsuarioDao;
 import com.leonardo.findya.outros.Util;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -183,7 +185,7 @@ public class AmigosAdapter extends BaseAdapter {
         });
 
         String url = Util.pegarUrlFotoProfile(contato.getIdFace());
-        App.getImageLoader().DisplayImage(url, viewHolder.img);
+        Picasso.with(context).load(url).placeholder(R.drawable.fya_icon).transform(new RoundedImageView()).into(viewHolder.img);
 /*
         viewHolder.opcoes.setOnClickListener(new OnClickListener() {
             @Override

@@ -98,7 +98,6 @@ public class LoginAct extends FragmentActivity {
             usuario.setIdInstalacao(InstallationId.id());
             UsuarioDao.cadastrarDispositivo();
 
-            App.getImageLoader().clearCache();
             App.atualizarAmigos();
             App.salvarUsuario();
 
