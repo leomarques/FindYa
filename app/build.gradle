@@ -2,10 +2,18 @@ apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
 
 android {
+    signingConfigs {
+        releaseConfig {
+            keyAlias 'releasealias'
+            keyPassword 'android'
+            storeFile file('C:/Users/Leonardo/.android/releasekey.jks')
+            storePassword 'android'
+        }
+    }
     compileSdkVersion 20
     buildToolsVersion "20.0.0"
     defaultConfig {
-        applicationId "com.leonardo.findya"
+        applicationId "leod7k.findya"
         minSdkVersion 15
         targetSdkVersion 20
         versionCode 1
@@ -18,6 +26,7 @@ android {
             proguardFile 'proguard-gson.pro'
             proguardFile 'proguard-facebook.pro'
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.releaseConfig
         }
     }
 }
@@ -34,7 +43,7 @@ buildscript {
 apt {
     arguments {
         androidManifestFile variant.outputs[0].processResources.manifestFile
-        resourcePackageName "com.leonardo.findya"
+        resourcePackageName "leod7k.findya"
     }
 }
 
