@@ -10,12 +10,13 @@ android {
             storePassword 'android'
         }
     }
-    compileSdkVersion 20
-    buildToolsVersion "20.0.0"
+    compileSdkVersion 23
+    buildToolsVersion '23.0.1'
     defaultConfig {
         applicationId "leod7k.findya"
         minSdkVersion 15
-        targetSdkVersion 20
+        //noinspection OldTargetApi
+        targetSdkVersion 22
         versionCode 1
         versionName "1.0"
     }
@@ -54,7 +55,7 @@ dependencies {
     compile 'com.squareup.okhttp:okhttp:2.1.0'
     compile 'com.squareup.okhttp:okhttp-urlconnection:2.1.0'
     compile 'com.google.code.gson:gson:2.3'
-    compile 'com.google.android.gms:play-services:6.5.87'
+    compile 'com.facebook.android:facebook-android-sdk:3.20.0'
+    compile 'com.google.android.gms:play-services:7.8.0'
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    provided project(':facebook')
 }
