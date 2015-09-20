@@ -14,7 +14,7 @@ public class InicioAct extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (App.getUsuario() == null) {
+        if (App.getUsuario() == null) {//
             LoginAct_.intent(this).start();
         } else {
             TelaPrincipalAct_.intent(this).start();
